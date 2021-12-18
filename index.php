@@ -23,7 +23,6 @@
                 avant l'achat : s'assurer que l'on ne sera pas incommodé par une sonorité</br>
                 certes remarquablement précise et musicale, mais au penchant vers</br>
                 les graves très prononcé.
-
             </p>
         </div>
         <div class="right-container1">

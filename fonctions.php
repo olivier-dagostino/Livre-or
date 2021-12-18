@@ -43,7 +43,7 @@ function afficherFormulaireCommentaire($Page, $IdArticle = 0)
 				commentaire = '$Commentaire',
 				" . ($IdArticle != 0 ? "id_article = $IdArticle," : "") /* ici id_article à remplacer par le nom de votre colonne */ . "
 				quand = " . time())) { //time() donne le timestamp actuel, on pourra le manipuler avec la fonction date(), exemple: date("H:i d-m-Y",quand)
-				echo "<p>Commentaire posté avec succès!</p>";
+				echo "<p>Commentaire posté avec succès!</br></br></p>";
 				//bien sûr, on pourrait imaginer que le commentaire ne soit pas tout de suite validé, en mettant une colonne supplémentaire dans la table des commentaires (ex: valide=0) et l'afficher que quand un admin le valide et mis à 1
 				$AfficherForm = 0; //on cache le formulaire
 			} else {

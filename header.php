@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <title>Document</title>
+  <title>Livre D'Or</title>
 </head>
 <header>
   <h1>
@@ -30,9 +30,14 @@
               <li><a href="GuestBook.php">Guest Book</a></li>
             </div>
             <div class='nav_list_item'>
+              <li><a href="Inscription.php">Inscription</a></li>
+            </div>
+            <div class='nav_list_item'>
+              <li><a href="module-connexion/connexion.php">Connexion</a></li>
+            </div>
+            <div class='nav_list_item'>
               <li><a href="#">Contact</a></li>
             </div>
-
           </ul>
         </div>
       </div>

@@ -76,7 +76,9 @@
         ?>
     </div>
     <div class="right-footer">
-        <p>  </p>
+    <div class="s-links">
+                            <a href="https://github.com/olivier-dagostino/module-connexion"> <i class="fab fa-github"></i></a>
+                        </div>
     </div>
 
 </footer>

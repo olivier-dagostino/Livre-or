@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -10,6 +11,48 @@ body {
   font-size: 20px;
 
 }
+
+/* Bordered form */
+form {
+    width:100%;
+    padding: 30px;
+    border: 1px solid #131313;
+    background: #fff;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+
+/* Full-width inputs */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+input[type=submit] {
+    background-color: #4bbeb8;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+input[type=submit]:hover {
+    background-color: white;
+    color: #53af57;
+    border: 1px solid #53af57;
+}
+
+.form-inscription {
+  display: flex;
+  align-items: center;
+}
+
 
 footer {
   background-color: #4fce99;
@@ -33,6 +76,7 @@ h2 {
   margin-top: 100px;
   display: flex;
   justify-content: space-around;
+  margin-bottom: 60px;
 }
 
 .left-container1 {
@@ -236,3 +280,113 @@ opacity: 1;
   opacity: 1;
 }
 }
+
+
+/*Style formulaire inscription*/
+
+.form-inscription
+{
+    display: flex;
+    justify-content: center;
+}
+
+/*Style formulaire connexion*/
+
+.formu
+{
+    display: flex;
+    justify-content: center;
+    
+}
+
+/* Formulaire de modification de profil */
+
+#formu-modif-profil {
+    display: flex;
+    justify-content: center;
+}
+/*Footer*/
+.container-f{
+    max-width: 1170px;
+    margin: auto;
+    text-align: center; 
+    width: 100%;
+  }
+  
+  .row{
+    display: flex;
+    justify-content: space-between;
+   
+  }
+  
+  
+  .footer{
+    background-color: #24262b;
+    padding: 20px 0;
+    margin: auto;
+    
+    
+  }
+  
+  .footer1{
+    width: 25%;
+    padding: 0 15px;
+    
+  }
+  
+  .footer1 h4{
+  
+    font-size: 18px;
+    color: #ffffff;
+    text-transform: capitalize;
+    margin-bottom: 35px;
+    font-weight: 500;
+    position: relative;
+    text-align: center;
+  
+  }
+  
+  .footer1 h4::before{
+    content: '';
+    position: absolute;
+    left: 0px;
+    bottom: -15px;
+    background-color: #8894b8;
+    height: 2px;
+    box-sizing: border-box;
+    width: 200px;
+    margin-left: 50px;
+  }
+  
+  
+  
+  .footer1 .s-links a{
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    background-color: rgba(255,255,255,0.2);
+    margin: 0 10px 10px 0;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    color: #ffffff;
+    transition: all 0.5s ease;
+  }
+  
+  .footer1 .s-links a:hover{
+    color: #193270;
+    background-color: #ffffff;
+  
+  }
+  
+  .pfooter{
+  
+    color: white;
+    text-align: left;
+  }
+  
+  .pfooter1{
+    color: white;
+  }
+  
+  /*FIN FOOTER*/

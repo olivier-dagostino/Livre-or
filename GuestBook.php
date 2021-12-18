@@ -31,7 +31,6 @@ if(!$mysqli) exit('Connexion MySQL non accomplie!');
 	</div>
     
 	<h2>Commentaires postés</h2>
-	<br><br><br>
 
 	<div class="commentaire-poste">
 	<center>
