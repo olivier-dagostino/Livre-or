@@ -26,26 +26,27 @@ if (isset($_POST['env']))
 ?>
 
 <?php require'header.php';?>
-    <h2><center>Modifier votre Profil</center></h2>
+    <h2><center>Modifier votre Profil</center></h2><br><br><br><br>
     <div id="formu-modif-profil">
-        
+        <center>
         <form name="formu" action="" method="post">
-            <label for ="login">Login</label>
-            <input style="font-family: 'Indie Flower', cursive;" id="login" name="login" value="<?php echo $login?>" type="text" placeholder="Username"/>
+            <label for ="login">Login</label><br>
+            <input style="font-family: 'Indie Flower', cursive;" id="login" name="login" value="<?php echo $login?>" type="text" placeholder="Username"/><br><br>
 
-            <label for ="prenom">Prenom</label>
-            <input style="font-family: 'Indie Flower', cursive;" name="prenom" value="<?php echo $prenom?>" type="text" placeholder="Prenom" />
+            <label for ="prenom">Prenom</label><br>
+            <input style="font-family: 'Indie Flower', cursive;" name="prenom" value="<?php echo $prenom?>" type="text" placeholder="Prenom" /><br><br>
 
-            <label for ="nom">Nom</label>
-            <input style="font-family: 'Indie Flower', cursive;" name="nom" value="<?php echo $nom?>" type="text" placeholder="Nom" />
+            <label for ="nom">Nom</label><br>
+            <input style="font-family: 'Indie Flower', cursive;" name="nom" value="<?php echo $nom?>" type="text" placeholder="Nom" /><br><br>
 
-            <label for ="password">Password</label>
-            <input style="font-family: 'Indie Flower', cursive;" name="password" value="<?php echo $password?>" type="password" placeholder="Votre Mot de Passe"/>
+            <label for ="password">Password</label><br>
+            <input style="font-family: 'Indie Flower', cursive;" name="password" value="<?php echo $password?>" type="password" placeholder="Votre Mot de Passe"/><br><br>
             
             <input style="font-family: 'Indie Flower', cursive;" name="env" type="submit" placeholder="Envoyer">
         </form>
+        </center>
     </div>
+    <br><br><br><br>
 
 
-    </body>
-</html>
+<?php require 'footer.php' ?>

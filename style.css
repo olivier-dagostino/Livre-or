@@ -9,43 +9,45 @@ body {
   color: white;
   font-family: 'Indie Flower', cursive;
   font-size: 20px;
+  align-items: center;
+  text-align: center;
 
 }
 
 /* Bordered form */
 form {
-    width:100%;
-    padding: 30px;
-    border: 1px solid #131313;
-    background: #fff;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  align-items: center;
+  width: 100%;
+  padding: 30px;
+  border: 2px solid #4fce99;
+  box-shadow: 0 0 30px 0 #33bfaa8f, 1px 1px 20px 20px #33bfaa8f;
 }
 
 
 /* Full-width inputs */
 input[type=text], input[type=password] {
-    width: 100%;
+    width: 60%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
-    border: 1px solid #ccc;
+    border: 2px solid #4fce99;
     box-sizing: border-box;
 }
 
 /* Set a style for all buttons */
 input[type=submit] {
-    background-color: #4bbeb8;
+    background-color: #4fce99;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
     cursor: pointer;
-    width: 100%;
+    width: 80%;
 }
 input[type=submit]:hover {
-    background-color: white;
-    color: #53af57;
-    border: 1px solid #53af57;
+    background-color: #4fce99;
+    color: #4fce99;
+    border: 1px solid #4fce99;
 }
 
 .form-inscription {
@@ -71,7 +73,9 @@ h2 {
   color: #4fce99;
   text-align: center;
 }
-
+.coontainer {
+  z-index: +100;
+}
 .container1 {
   margin-top: 100px;
   display: flex;
@@ -121,7 +125,7 @@ h2 {
   align-items: center;
   scroll-behavior: smooth;
   background: #131313;
-  font-family:'Helvetica Neue', sans-serif;
+  
 }
 
 .left-footer {
@@ -169,7 +173,7 @@ text-transform: uppercase;
 
 .popover {
  display: none;
- box-shadow: 0px 6px 8px rgba(19, 19, 19, .7);
+ box-shadow: 0px 6px 8px rgba(19, 19, 19, 0.281);
 }
 
 .popover:target {
@@ -190,7 +194,6 @@ justify-content: center;
 position: relative;
 width: 0;
 height: 0;
-color: #fff;
 background-color: rgba(19, 19, 19, .9);
 
 animation: 1s grow ease forwards;
@@ -204,7 +207,7 @@ list-style-type: none;
 .nav_list a {
 text-decoration: none;
 font-size: 60px;
-color: #fff;
+color: #4fce99;
 }
 
 .nav_list_item {

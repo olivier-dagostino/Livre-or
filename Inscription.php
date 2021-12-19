@@ -27,7 +27,8 @@ if (isset($_POST['env'])) {
 <?php require 'header.php' ?>
 
 <div class="form-inscription">
-  <form action="" method="post">
+  <center>
+  <form action="connexion.php" method="post">
     <?php
     if (!empty($nom) && !empty($prenom) && !empty($password) && !empty($login)) {
       if ($password == $conf) {
@@ -40,19 +41,22 @@ if (isset($_POST['env'])) {
     <h1>
       <center>Formulaire d'Inscription</center>
     </h1>
-    <label for="login">Login</label>
+    <label for="login">Login</label><br>
     <input style="font-family: 'Indie Flower', cursive;" type="text" name="login" id="login" placeholder="Login"><br><br>
-    <label for="prenom">Prénom</label>
+    <label for="prenom">Prénom</label><br>
     <input style="font-family: 'Indie Flower', cursive;" name="prenom" type="text" placeholder="prenom" /><br><br>
-    <label for="nom">Nom</label>
+    <label for="nom">Nom</label><br>
     <input style="font-family: 'Indie Flower', cursive;" name="nom" type="text" placeholder="nom" /><br><br>
-    <label for="password">Mot de Passe</label>
+    <label for="password">Mot de Passe</label><br>
     <input style="font-family: 'Indie Flower', cursive;" type="password" name="password" id="password" placeholder="Password"><br><br>
-    <label for="confpw">Confirmation Mot de Passe</label>
+    <label for="confpw">Confirmation Mot de Passe</label><br>
     <input style="font-family: 'Indie Flower', cursive;" type="password" name="confpw" id="confpw" placeholder="Confirmer votre Password"><br><br>
-    <input style="font-family: 'Indie Flower', cursive;" type="submit" value="S'inscrire" name="inscription" class="submit"><br><br><br><br>
+    <input style="font-family: 'Indie Flower', cursive; font: size 20px;" type="submit" value="S'inscrire" name="inscription" class="submit"><br><br><br><br>
   </form>
+  </center>
 </div>
+<br><br><br>
+
 
 <?php
 $bdd = mysqli_connect("localhost:8889", "root", "root", "moduleconnexion");

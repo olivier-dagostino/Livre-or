@@ -8,10 +8,9 @@
   <link rel="stylesheet" href="style.css">
   <title>Livre D'Or</title>
 </head>
-<header>
-  <h1>
-    <center>WELCOME ON MY WEBSITE</center>
-  </h1>
+<body>
+  
+  <header>
   <div class="container">
     <h1>
       <a href="#menu">MENU</a>
@@ -33,7 +32,7 @@
               <li><a href="Inscription.php">Inscription</a></li>
             </div>
             <div class='nav_list_item'>
-              <li><a href="module-connexion/connexion.php">Connexion</a></li>
+              <li><a href="connexion.php">Connexion</a></li>
             </div>
             <div class='nav_list_item'>
               <li><a href="#">Contact</a></li>

@@ -16,7 +16,8 @@ if(!$mysqli) exit('Connexion MySQL non accomplie!');
 
 <?php require 'header.php'; ?>
     <body>
-    
+	<h1>Livre d'Or</h1>
+    <br><br><br>
 	<h2>Écrire un commentaire</h2>
 	<br><br><br>
 	
@@ -29,9 +30,10 @@ if(!$mysqli) exit('Connexion MySQL non accomplie!');
 	
 	
 	</div>
-    
+	
+     <br><br><br>
 	<h2>Commentaires postés</h2>
-
+<br><br>
 	<div class="commentaire-poste">
 	<center>
 	<?php afficherCommentaires(123);?>

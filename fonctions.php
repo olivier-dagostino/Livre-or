@@ -1,4 +1,6 @@
-<?php if (!defined("C2SCRIPT")) exit; //empêche l'accès direct à cette page, autorisé seulement en include en définissant "C2SCRIPT", juste avant
+<?php 
+
+if (!defined("C2SCRIPT")) exit; //empêche l'accès direct à cette page, autorisé seulement en include en définissant "C2SCRIPT", juste avant
 
 function htmlent($texte)
 {
@@ -69,11 +71,11 @@ function afficherFormulaireCommentaire($Page, $IdArticle = 0)
 			- pour interdire de mettre plus de 20 caractères, si il en rentre plus, notre table SQL coupera à la longueur de 20 caractères (ne pas se fier à un paramètre HTML pour l'insert dans une table car on peut facilement modifier ces conditions (required, maxlength,...) dans le code source) ici ça indiquera à l'utilisateur (si il tente de mettre plus de 20 caractères) qu'il ne peut pas, ça éviera de lui couper pseudo si il est trop long
 			
 			-->
-			<br />
+			<br /><br />
 			Email
 			<br />
 			<input type="text" name="mail" value="<?php echo raf("mail"); ?>" maxlength="50" required="required">
-			<br />
+			<br /><br />
 			Message
 			<br />
 			<textarea name="commentaire" rows="10" cols="50" required="required"><?php echo raf("commentaire"); ?></textarea>
@@ -82,7 +84,7 @@ function afficherFormulaireCommentaire($Page, $IdArticle = 0)
 			cols définit la largeur, indique le nombre de lettre qui sera visible de gauche à droite
 			ici on à une hauteur de 10 ligne et d'une largeur de 50 lettres
 			-->
-			<br />
+			<br /><br /><br />
 			<input type="submit" name="envoyer" value="Poster!">
 		</form>
 		<?php
@@ -98,7 +100,7 @@ function afficherCommentaires($IdArticle = 0)
 	} else {
 		while ($infos = mysqli_fetch_assoc($req)) {
 		?>
-			<div style="margin-bottom:30px;border-bottom:1px solid black">
+			<div style="margin-bottom:50px; border:2px solid #4fce99">
 				<p style="text-decoration:underline"><b><?php echo $infos['pseudo']; ?> le <?php echo date("d-m-Y", $infos['quand']) . " à " . date("H:i", $infos['quand']); ?></b></p>
 				<p><?php echo $infos['commentaire']; ?></p>
 			</div>
