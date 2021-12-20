@@ -17,7 +17,7 @@ body {
 /* Bordered form */
 form {
   align-items: center;
-  width: 100%;
+  width: 70%;
   padding: 30px;
   border: 2px solid #4fce99;
   box-shadow: 0 0 30px 0 #33bfaa8f, 1px 1px 20px 20px #33bfaa8f;

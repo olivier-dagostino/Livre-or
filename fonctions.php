@@ -100,8 +100,8 @@ function afficherCommentaires($IdArticle = 0)
 	} else {
 		while ($infos = mysqli_fetch_assoc($req)) {
 		?>
-			<div style="margin-bottom:50px; border:2px solid #4fce99">
-				<p style="text-decoration:underline"><b><?php echo $infos['pseudo']; ?> le <?php echo date("d-m-Y", $infos['quand']) . " à " . date("H:i", $infos['quand']); ?></b></p>
+			<div style="margin-bottom:50px; border:2px solid #4fce99; width: 70%;padding: 40px;">
+				<p style="color:#4fce99; "><b><?php echo $infos['pseudo']; ?> le <?php echo date("d-m-Y", $infos['quand']) . " à " . date("H:i", $infos['quand']); ?></b></p><br>
 				<p><?php echo $infos['commentaire']; ?></p>
 			</div>
 <?php

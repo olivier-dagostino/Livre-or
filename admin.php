@@ -15,6 +15,7 @@
         
 
         <h1>Tableau</h1>
+        <center>
         <table>
             <thead>
                 
@@ -46,21 +47,24 @@
             ?>
             </tbody>
         </table>
+        </center>
     </body>
 </html>
 
 <style>
     table,
 td {
-    border: 2px solid #333;
-
-    color: black;
+    border: 1px solid #4fce99;
+    color: white;
+    padding: 20px;
+    margin: 60px;
 
 }
 
 th {
-    border: 2px solid #333;
-    background-color : yellow;
+    border: 1px solid #4fce99;
+    padding: 20px;
+    color: white;
 }
 </style>
 
