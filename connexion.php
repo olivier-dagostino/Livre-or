@@ -11,24 +11,25 @@ if (isset($_POST['login']) && isset($_POST['password'])) { // SI c'est deux $Pos
     $password = $_POST['password'];
     $sql = mysqli_query($connect, "SELECT * FROM utilisateurs WHERE login='$login' AND password='$password'"); // Je compare toutes les données de la table utilisateurs avec $login et $password
     $res = mysqli_fetch_all($sql);  // Alors la $login et $password vont stocker $post
-
+     
     if (empty($res)) {
         echo 'Votre Mot de Passe ou Votre Nom Utilisateur sont inconnus'; // verification du MDP et du Login
     } else {
-        if ($res[0][4] == $password) { //si la $res est strictement = a $password
-            session_start();            // alors start session
-            if ($password == 'admin') {  // si le password est = a ADmin 
+        if ($res[0][5] == "admin") { //si la $res est strictement = a $password
+            session_start(); 
+                  // alors start session
+            $_SESSION["id"]= $res[0][0];
+            $_SESSION["role"]= $res[0][5];
 
-                header("refresh:1;url=admin.php"); // alors je renvois vers admin.php
-
-            } else {
+            header("refresh:1;url=admin.php"); // alors je renvois vers admin.php
+            
+            }  else {
                 echo $res[0][2] . ' Veuillez patienter, vous allez être redirigé vers votre espace'; // Sinon bienvenue dans votre espace
+                session_start();
                 $_SESSION["id"] = $res[0][0];
+                $_SESSION["role"]=$res[0][5];
                 header("refresh:1;url=profil.php");
             }
-        } else {
-            echo "Erreur";
-        }
     }
 }
 ?>
