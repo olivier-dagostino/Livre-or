@@ -55,7 +55,8 @@ function afficherFormulaireCommentaire($Page, $IdArticle = 0)
 	}
 	if ($AfficherForm == 1) {
 ?>
-		<form action="<?php echo $Page; ?>" method="post">
+
+		<form id="form-guestbook"action="<?php echo $Page; ?>" method="post">
 			Pseudo
 			<br />
 			<input type="text" name="pseudo" value="<?php echo raf("pseudo"); ?>" maxlength="20" required="required">
@@ -74,11 +75,11 @@ function afficherFormulaireCommentaire($Page, $IdArticle = 0)
 			<br /><br />
 			Email
 			<br />
-			<input type="text" name="mail" value="<?php echo raf("mail"); ?>" maxlength="50" required="required">
+			<input placeholder=" Votre Email" type="text" name="mail" value="<?php echo raf("mail"); ?>" maxlength="50" required="required">
 			<br /><br />
 			Message
 			<br />
-			<textarea name="commentaire" rows="10" cols="50" required="required"><?php echo raf("commentaire"); ?></textarea>
+			<textarea placeholder="Votre commentaire" name="commentaire" rows="10" cols="50" required="required"><?php echo raf("commentaire"); ?></textarea>
 			<!--
 			rows définit la hauteur, indique le nombre de ligne qui sera visible
 			cols définit la largeur, indique le nombre de lettre qui sera visible de gauche à droite

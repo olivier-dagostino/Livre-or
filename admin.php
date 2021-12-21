@@ -1,7 +1,7 @@
 <?php require 'header.php' ?>
 <?php
 session_start();
-var_dump($_SESSION);
+
 if ($_SESSION['role'] != 'admin') {
     header("refresh:0;url=profil.php"); 
     } else {

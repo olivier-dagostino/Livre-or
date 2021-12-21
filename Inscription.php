@@ -26,9 +26,9 @@ if (isset($_POST['env'])) {
 
 <?php require 'header.php' ?>
 
-<div class="form-inscription">
+<div>
   <center>
-  <form action="connexion.php" method="post">
+  <form id="form-inscription" action="connexion.php" method="post">
     <?php
     if (!empty($nom) && !empty($prenom) && !empty($password) && !empty($login)) {
       if ($password == $conf) {
@@ -91,8 +91,4 @@ if (isset($_SESSION['login']) == false) {
 }
 
 ?>
-
-
-</body>
-
-</html>
+<?php require 'footer.php' ?>

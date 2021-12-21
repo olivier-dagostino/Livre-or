@@ -1,20 +1,18 @@
+
 <footer>
     <div class="left-footer">
-        <p>  </p>
-    </div>
-    <div class="middle-footer">
         <?php
 
         function compteur($Afficher = 0)
         {
 
-            $CheminStats = "compteur/stats.txt";
+            $CheminStats = "asset/compteur/stats.txt";
             /*
- Utilisation:
- echo compteur(1);//affichera le nombre d'affichages aujourd'hui
- echo compteur(2);//affichera le total depuis la création du compteur
- compteur();//comptera l'affichage
- */
+            Utilisation:
+            echo compteur(1);//affichera le nombre d'affichages aujourd'hui
+            echo compteur(2);//affichera le total depuis la création du compteur
+            compteur();//comptera l'affichage
+            */
             //on vérifie si aujourd'hui il y a eu des visites, si oui on ajoute une visite, si non on ajoute une nouvelle ligne
             $Contenu = file_get_contents($CheminStats); //lecture du fichier stats
             if ($Contenu == "") {
@@ -76,9 +74,10 @@
         ?>
     </div>
     <div class="right-footer">
-    <div class="s-links">
-                            <a href="https://github.com/olivier-dagostino/module-connexion"> <i class="fab fa-github"></i></a>
-                        </div>
+        <div class="s-links">
+            <a href="https://github.com/olivier-dagostino/livre-or"><i class="fab fa-github"></i></a><br>
+            <p>Lien GitHub vers le Projet</p>
+        </div>
     </div>
 
 </footer>
