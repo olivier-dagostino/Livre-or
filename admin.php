@@ -50,10 +50,11 @@ $res = mysqli_fetch_all($req, MYSQLI_ASSOC);  //on stock le résultat de la requ
                     {
                         echo "<td>$value1</td>";  // j'echo l'info
                     }
-
                     echo '</tr>';
                 }
+                
                 ?>
+
         </tbody>
     </table>
 </center>
