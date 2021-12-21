@@ -2,7 +2,7 @@
 
 session_start();
 $id = $_SESSION["id"];
-$bdd = mysqli_connect("localhost:8889","root","root","moduleconnexion"); 
+$bdd = mysqli_connect("localhost:3306", "utilisateurs1", "12345", "olivier-d-agostino_livreor"); 
 
 $req= mysqli_query($bdd,"SELECT * FROM utilisateurs WHERE id = $id");
 

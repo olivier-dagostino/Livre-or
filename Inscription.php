@@ -1,5 +1,5 @@
 <?php
-$connect = mysqli_connect("localhost:8889", "root", "root", "moduleconnexion"); // je me connecte a la bdd
+$connect = mysqli_connect("localhost:3306", "utilisateurs1", "12345", "olivier-d-agostino_livreor"); // je me connecte a la bdd
 
 
 if (isset($_POST['env'])) {
@@ -59,7 +59,7 @@ if (isset($_POST['env'])) {
 
 
 <?php
-$bdd = mysqli_connect("localhost:8889", "root", "root", "moduleconnexion");
+$bdd = mysqli_connect("localhost:3306", "utilisateurs1", "12345", "olivier-d-agostino_livreor");
 
 if (isset($_SESSION['login']) == false) {
   if (isset($_POST['inscription'])) {

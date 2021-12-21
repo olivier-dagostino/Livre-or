@@ -3,7 +3,7 @@
 
 <?php
 
-$connect = mysqli_connect("localhost:8889", "root", "root", "moduleconnexion"); // je me connecte a la bdd
+$connect = mysqli_connect("localhost:3306", "utilisateurs1", "12345", "olivier-d-agostino_livreor"); // je me connecte a la bdd
 
 
 if (isset($_POST['login']) && isset($_POST['password'])) { // SI c'est deux $Post sont défini

@@ -10,7 +10,7 @@ if ($_SESSION['role'] != 'admin') {
 
 <?php
 
-$bdd = mysqli_connect("localhost:8889", "root", "root", "moduleconnexion");  // je me connecte a la base de données
+$bdd = mysqli_connect("localhost:3306", "utilisateurs1", "12345", "olivier-d-agostino_livreor");  // je me connecte a la base de données
 
 
 $req = mysqli_query($bdd, "SELECT * FROM utilisateurs");  // Execution de la requette
