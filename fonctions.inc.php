@@ -63,21 +63,11 @@ function afficherFormulaireCommentaire($Page, $IdArticle = 0)
 ?>
 
 		<form id="form-guestbook"action="<?php echo $Page; ?>" method="post">
-			Pseudo
+			<p>Votre pseudo</p>
 			<br />
-			<input type="text" name="pseudo" value="<?php echo raf("pseudo"); ?>" maxlength="20" required="required">
-			<!--
+			<input placeholder="Votre Pseudo" type="text" name="pseudo" value="<?php echo raf("pseudo"); ?>" maxlength="20" required="required">
 			
-			required="required"
-			
-			- pour obliger l'utilisateur à renseigner ce champ avant l'envoi, même si on indique ce paramètre, toujours faire la vérification du champs avec PHP (if empty) parce que l'utilisateur peut modifier le code source HTML (pas PHP) d'une page
-			
-			
-			maxlength="20"
-			
-			- pour interdire de mettre plus de 20 caractères, si il en rentre plus, notre table SQL coupera à la longueur de 20 caractères (ne pas se fier à un paramètre HTML pour l'insert dans une table car on peut facilement modifier ces conditions (required, maxlength,...) dans le code source) ici ça indiquera à l'utilisateur (si il tente de mettre plus de 20 caractères) qu'il ne peut pas, ça éviera de lui couper pseudo si il est trop long
-			
-			-->
+
 			<br /><br />
 			Email
 			<br />

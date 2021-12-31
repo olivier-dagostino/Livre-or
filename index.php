@@ -48,8 +48,6 @@ if(!$mysqli) exit('Connexion MySQL non accomplie!');
 
     </div>
     <div class="commentaire">
-
-    
     <center>
 	<?php afficherCommentaires(123);?>
 	</center>

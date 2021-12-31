@@ -28,7 +28,7 @@ if (isset($_POST['login']) && isset($_POST['password'])) { // SI c'est deux $Pos
             session_start();
             $_SESSION["id"] = $res[0][0];
             $_SESSION["role"] = $res[0][5];
-            header("refresh:1;url=profil.php");
+            header("refresh:1;url=GuestBook.php");
         }
     }
 }

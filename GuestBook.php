@@ -18,8 +18,7 @@ if(!$mysqli) exit('Connexion MySQL non accomplie!');
     <body>
 	<h1>Livre d'Or</h1>
     <br><br><br>
-	<h2>Écrire un commentaire</h2>
-	<br><br><br>
+	
 	
 	<div class="formulaire">
 	
