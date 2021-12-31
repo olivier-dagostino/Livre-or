@@ -1,5 +1,20 @@
-<?php require 'header.php'; ?>
 
+<?php
+//on définit notre variable pour pouvoir inclure les fichier
+define("C2SCRIPT","peut être n'importe quoi ici");
+include("fonctions.inc.php");
+
+//on se connecte à la base de données (à adapter/remplacer avec votre système de connexion)"localhost:8889", "root", "root", "livreor"
+$BDD = array();
+$BDD['serveur'] = "localhost:8889";
+$BDD['login'] = "root";
+$BDD['pass'] = "root";
+$BDD['bdd'] = "livreor";
+$mysqli = mysqli_connect($BDD['serveur'],$BDD['login'],$BDD['pass'],$BDD['bdd']);
+if(!$mysqli) exit('Connexion MySQL non accomplie!');
+
+?>
+<?php require_once 'header.php';?>
 <main>
 
 
@@ -24,14 +39,22 @@
                 avant l'achat : s'assurer que l'on ne sera pas incommodé par une sonorité</br>
                 certes remarquablement précise et musicale, mais au penchant vers</br>
                 les graves très prononcé.
-            </p>
+            </p> <br><br><br>
+            <p>Pour laisser un Commentaires inscrivez-vous, puis connectez-vous à votre espace</p>
         </div>
         <div class="right-container1">
             <img id="img-avis2" src="asset/img/IMG_0025.jpg" alt="">
         </div>
 
     </div>
+    <div class="commentaire">
+
+    
+    <center>
+	<?php afficherCommentaires(123);?>
+	</center>
+    </div>
 
 </main>
 
-<?php require 'footer.php' ?>
+<?php require_once 'footer.php' ?>

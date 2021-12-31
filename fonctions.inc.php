@@ -7,11 +7,17 @@ function htmlent($texte)
 	// htmlentities(chaine de caractères,ENT_QUOTES,"UTF-8") permet de convertir tous les caractères en entité HTML
 	return htmlentities($texte, ENT_QUOTES, "UTF-8");
 }
+
+/* *********************************************************** */
+
 function raf($NomDuBouton, $TexteParDefaut = '')
 {
 	//fonction pour réafficher les champs du formulaire après l'avoir envoyé pour ne pas avoir à les reremplir
 	return isset($_POST[$NomDuBouton]) ? htmlentities($_POST[$NomDuBouton], ENT_QUOTES, "UTF-8") : $TexteParDefaut;
 }
+
+/* *********************************************************** */
+
 function afficherFormulaireCommentaire($Page, $IdArticle = 0)
 {
 	global $mysqli; //permet à la variable $mysqli d'être utilisée dans la fonction
@@ -91,6 +97,9 @@ function afficherFormulaireCommentaire($Page, $IdArticle = 0)
 		<?php
 	}
 }
+
+
+
 function afficherCommentaires($IdArticle = 0)
 {
 	global $mysqli; //permet à la variable $mysqli d'être utilisée dans la fonction

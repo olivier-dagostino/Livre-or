@@ -2,7 +2,7 @@
 
 session_start();
 $id = $_SESSION["id"];
-$bdd = mysqli_connect("localhost:3306", "utilisateurs1", "12345", "olivier-d-agostino_livreor"); 
+$bdd = mysqli_connect("localhost:8889", "root", "root", "livreor"); 
 
 $req= mysqli_query($bdd,"SELECT * FROM utilisateurs WHERE id = $id");
 
@@ -25,7 +25,9 @@ if (isset($_POST['env']))
 
 ?>
 
-<?php require'header.php';?>
+<?php require_once 'header.php';?>
+
+
     <h2><center>Modifier votre Profil</center></h2><br><br><br><br>
     <div id="formu-modif-profil">
         <center>

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,20 +23,19 @@
         <a href="#" class="close"></a>
         <div class='nav'>
           <ul class='nav_list'>
-
-            <div class='nav_list_item'>
-              <li><a href="index.php">Home</a></li>
-            </div>
-            <div class='nav_list_item'>
-              <li><a href="GuestBook.php">Livre d'Or</a></li>
-            </div>
-            <div class='nav_list_item'>
-              <li><a href="Inscription.php">Inscription</a></li>
-            </div>
-            <div class='nav_list_item'>
-              <li><a href="connexion.php">Connexion</a></li>
-            </div>
-
+            
+                <?php
+                if (isset($_SESSION["login"])) {
+                    echo "<div class='nav_list_item'><li><a href='index.php'>Home</a></li></div>";
+                    echo "<div class='nav_list_item'><li><a href='profil.php'>Page de profil</a></li></div>";
+                    echo "<div class='nav_list_item'><li><a href='GuestBook.php'>Livre d'Or</a></li></div>";
+                    echo "<div class='nav_list_item'><li><a href='deconnexion.php'>Déconnexion</a></li></div>";
+                } else {
+                    echo "<div class='nav_list_item'><li><a href='index.php'>Home</a></li></div>";
+                    echo "<div class='nav_list_item'><li><a href='Inscription.php'>Inscription</a></li></div>";
+                    echo "<div class='nav_list_item'><li><a href='connexion.php'>Connexion</a></li></div>";
+                }
+                ?>
           </ul>
         </div>
       </div>
