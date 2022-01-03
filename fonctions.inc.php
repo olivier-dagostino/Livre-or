@@ -24,30 +24,23 @@ function afficherFormulaireCommentaire($Page, $IdArticle = 0)
 	$AfficherForm = 1; //quand tout sera bien posté, on cachera le formulaire en mettant cette valeur à 0
 	$msg_erreur = ''; //pour indiquer les erreurs qui empéche la soumission du formulaire, on prendre aussi cette valeur comme répère pour savoir si il y a une erreur (vide = OK, pas vide = il y a des erreurs, on affiche le message)
 	if (isset($_POST['envoyer'])) { //si le bouton envoyer (name="envoyer") est cliqué, on traite le fomulaire
-		if (empty($_POST['pseudo']) or empty($_POST['mail']) or empty($_POST['commentaire'])) {
-			$msg_erreur .= "Un des champs est vide";
-		} else {
-
-			//les champs sont pas vides, on traite les informations saisies en commençant par l'adresse email
-			if (!preg_match("#^[a-z0-9_-]+((\.[a-z0-9_-]+){1,})?@[a-z0-9_-]+((\.[a-z0-9_-]+){1,})?\.[a-z]{2,30}$#i", $_POST['mail'])) {
-				$msg_erreur .= "Le mail est incorrect<br/>"; //on met un saut de ligne (br) pour afficher les messages les un sur les autres (si il y en a plusieurs) et pas les un derrière les autres
-			}
-		}
-		if ($msg_erreur != '') {
+		if (empty($_POST['commentaire'])) {
+			$msg_erreur .= "Le Champ Commentaire est vide";
+		} else if ($msg_erreur != '') {
 			//si il y a des erreurs, on les affichent
 			echo '<h1 style="color:red">Il y a des erreurs:</h1>';
 			echo $msg_erreur;
 		} else {
 			//pas d'erreurs, on sécurise les champs pour les insérer dans la base de données
-			$Pseudo = htmlent($_POST['pseudo']); //voir la fonction htmlent() dans le fichier fonctions.php pour plus de détails
-			$Mail = htmlent($_POST['mail']);
+			$Login = htmlent($_POST['login']); //voir la fonction htmlent() dans le fichier fonctions.php pour plus de détails
+		
 			$Commentaire =  htmlent($_POST['commentaire']);
 			$Commentaire = nl2br($Commentaire); //nl2br nous permet d'ajouter des <br/> quand il y a un saut de ligne, nous permettra de garder les saut quand on 
 
 			//on l'insère dans la bdd (vous remarquerez que je n'ai pas entouré les variable par ".$MaVariable.", ça fonctionne seulement si vous mettez des guillemets double en debut et en fin ("INSERT INTO....") ne fonctionnera pas avec des guillemets simples, exemple: ('INSERT INTO....')
 			if (mysqli_query($mysqli, "INSERT INTO commentaires SET 
-				pseudo = '$Pseudo',
-				mail = '$Mail',
+				login = '$Login',
+				
 				commentaire = '$Commentaire',
 				" . ($IdArticle != 0 ? "id_article = $IdArticle," : "") /* ici id_article à remplacer par le nom de votre colonne */ . "
 				quand = " . time())) { //time() donne le timestamp actuel, on pourra le manipuler avec la fonction date(), exemple: date("H:i d-m-Y",quand)
@@ -63,18 +56,13 @@ function afficherFormulaireCommentaire($Page, $IdArticle = 0)
 ?>
 
 		<form id="form-guestbook"action="<?php echo $Page; ?>" method="post">
-			<p>Votre pseudo</p>
-			<br />
-			<input placeholder="Votre Pseudo" type="text" name="pseudo" value="<?php echo raf("pseudo"); ?>" maxlength="20" required="required">
+			<?php echo "Vous êtes connecté en tant que " . $_SESSION['login']; ?>
 			
 
-			<br /><br />
-			Email
-			<br />
-			<input placeholder=" Votre Email" type="text" name="mail" value="<?php echo raf("mail"); ?>" maxlength="50" required="required">
-			<br /><br />
+			<br /><br /><br />
+			
 			Message
-			<br />
+			<br /><br />
 			<textarea placeholder="Votre commentaire" name="commentaire" rows="10" cols="50" required="required"><?php echo raf("commentaire"); ?></textarea>
 			<!--
 			rows définit la hauteur, indique le nombre de ligne qui sera visible

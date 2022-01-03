@@ -20,14 +20,17 @@ if (isset($_POST['login']) && isset($_POST['password'])) { // SI c'est deux $Pos
             // alors start session
             $_SESSION["id"] = $res[0][0];
             $_SESSION["role"] = $res[0][5];
+            $_SESSION["login"] = $res [0][1];
+            
 
-            header("refresh:1;url=admin.php"); // alors je renvois vers admin.php
+            header("refresh:2;url=admin.php"); // alors je renvois vers admin.php
 
         } else {
             echo $res[0][2] . ' Veuillez patienter, vous allez être redirigé vers votre espace'; // Sinon bienvenue dans votre espace
             session_start();
             $_SESSION["id"] = $res[0][0];
             $_SESSION["role"] = $res[0][5];
+            $_SESSION["login"] = $res [0][1];
             header("refresh:1;url=GuestBook.php");
         }
     }

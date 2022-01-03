@@ -57,6 +57,12 @@ if (isset($_POST['env'])) {
 </div>
 <br><br><br>
 
+<?php
+$select = mysqli_query($conn, "SELECT * FROM users WHERE username = '".$_POST['username']."'");
+if(mysqli_num_rows($select)) {
+    exit("Ce nom d'utilisateur existe déjà");
+}
+?>
 
 <?php
 $bdd = mysqli_connect("localhost:3306", "utilisateurs1", "12345", "olivier-d-agostino_livreor");
