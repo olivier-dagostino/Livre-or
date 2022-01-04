@@ -25,10 +25,10 @@
           <ul class='nav_list'>
             
                 <?php
-                var_dump($_SESSION);
+                
                 if (!empty($_SESSION["login"])) {
                     echo "<div class='nav_list_item'><li><a href='index.php'>Home</a></li></div>";
-                    echo "<div class='nav_list_item'><li><a href='profil.php'>Page de profil</a></li></div>";
+                    echo "<div class='nav_list_item'><li><a href='profil.php'>Profil</a></li></div>";
                     echo "<div class='nav_list_item'><li><a href='GuestBook.php'>Livre d'Or</a></li></div>";
                     echo "<div class='nav_list_item'><li><a href='deconnexion.php'>Déconnexion</a></li></div>";
                 } else {

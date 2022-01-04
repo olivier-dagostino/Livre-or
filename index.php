@@ -1,20 +1,9 @@
 
 <?php
-//on définit notre variable pour pouvoir inclure les fichier
-define("C2SCRIPT","peut être n'importe quoi ici");
-include("fonctions.inc.php");
-
-//on se connecte à la base de données (à adapter/remplacer avec votre système de connexion)"localhost:8889", "root", "root", "livreor"
-$BDD = array();
-$BDD['serveur'] = "localhost:8889";
-$BDD['login'] = "root";
-$BDD['pass'] = "root";
-$BDD['bdd'] = "livreor";
-$mysqli = mysqli_connect($BDD['serveur'],$BDD['login'],$BDD['pass'],$BDD['bdd']);
-if(!$mysqli) exit('Connexion MySQL non accomplie!');
-
+include('include/bdd.inc.php');
+include('include/header.inc.php');
 ?>
-<?php require_once 'header.php';?>
+
 <main>
 
 
@@ -48,11 +37,26 @@ if(!$mysqli) exit('Connexion MySQL non accomplie!');
 
     </div>
     <div class="commentaire">
-    <center>
-	<?php afficherCommentaires(123);?>
-	</center>
-    </div>
+		<?php
+			if($result = mysqli_query($connect,"SELECT commentaires.*, utilisateurs.login FROM commentaires INNER JOIN utilisateurs ON commentaires.id_utilisateur = utilisateurs.id ORDER BY `date` ASC")){
+				while ($infos = mysqli_fetch_assoc($result)){
+					
+					?>
+					<div class="screen_com">
+						<h2>Pseudo</h2>
+						<?php echo $infos['login']; ?>
+						<h2>Date</h2>
+						<?php echo $infos['date']; ?>
+						<h2>Commentaire</h2>
+						<?php echo $infos['commentaire']; ?>
+					</div>
+					<?php 
+				}
+			}
+		?>
+
+	</div>
 
 </main>
 
-<?php require_once 'footer.php' ?>
+<?php include('include/footer.inc.php'); ?>

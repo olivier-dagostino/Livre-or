@@ -1,5 +1,6 @@
-<?php require 'header.php' ?>
-
+<?php
+include('include/header.inc.php');
+?>
 
 <?php
 
@@ -16,7 +17,7 @@ if (isset($_POST['login']) && isset($_POST['password'])) { // SI c'est deux $Pos
         echo 'Votre Mot de Passe ou Votre Nom Utilisateur sont inconnus'; // verification du MDP et du Login
     } else {
         if ($res[0][5] == "admin") { //si la $res est strictement = a $password
-            session_start();
+            
             // alors start session
             $_SESSION["id"] = $res[0][0];
             $_SESSION["role"] = $res[0][5];
@@ -27,7 +28,7 @@ if (isset($_POST['login']) && isset($_POST['password'])) { // SI c'est deux $Pos
 
         } else {
             echo $res[0][2] . ' Veuillez patienter, vous allez être redirigé vers votre espace'; // Sinon bienvenue dans votre espace
-            session_start();
+         
             $_SESSION["id"] = $res[0][0];
             $_SESSION["role"] = $res[0][5];
             $_SESSION["login"] = $res [0][1];

@@ -253,6 +253,9 @@ opacity: 0;
 animation: 1s fadeIn ease forwards .5s;
 }
 
+
+
+
 /* RESPONSIV */
 @keyframes grow {
 100% {
@@ -273,7 +276,6 @@ opacity: 1;
   opacity: 1;
 }
 }
-
 
 /*Footer*/
 footer {

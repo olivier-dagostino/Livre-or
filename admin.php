@@ -1,9 +1,9 @@
-<?php require 'header.php' ?>
+<?php include('include/header.inc.php'); ?>
 <?php
-session_start();
+
 
 if ($_SESSION['role'] != 'admin') {
-    header("refresh:0;url=profil.php"); 
+    header("url=profil.php"); 
     } else {
 
     ?>
@@ -77,5 +77,5 @@ $res = mysqli_fetch_all($req, MYSQLI_ASSOC);  //on stock le résultat de la requ
     }
 </style>
 
-<?php require 'footer.php' ?>
+<?php include('include/footer.inc.php'); ?>
 <?php } ?>

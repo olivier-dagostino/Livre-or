@@ -1,44 +1,54 @@
 <?php
-//on définit notre variable pour pouvoir inclure les fichier
-define("C2SCRIPT","peut être n'importe quoi ici");
-include("fonctions.inc.php");
-
-//on se connecte à la base de données (à adapter/remplacer avec votre système de connexion)"localhost:8889", "root", "root", "livreor"
-$BDD = array();
-$BDD['serveur'] = "localhost:8889";
-$BDD['login'] = "root";
-$BDD['pass'] = "root";
-$BDD['bdd'] = "livreor";
-$mysqli = mysqli_connect($BDD['serveur'],$BDD['login'],$BDD['pass'],$BDD['bdd']);
-if(!$mysqli) exit('Connexion MySQL non accomplie!');
+include('include/bdd.inc.php');
+include('include/header.inc.php');
 
 ?>
 
-<?php require 'header.php'; ?>
     <body>
 	<h1>Livre d'Or</h1>
-    <br><br><br>
-	
+
+<?php
+	if (isset($_POST['envoyer'])) { //si le bouton envoyer (name="envoyer") est cliqué, on traite le fomulaire
+		if (empty($_POST['commentaire'])) {
+			$msg_erreur = "Le Champ Commentaire est vide";
+		} else {
+			$commentaire =  $_POST['commentaire'];
+			$userid = $_SESSION['id'];
+			$result = mysqli_query($connect, "INSERT INTO `commentaires` (`commentaire`,`id_utilisateur`,`date`) VALUES ($commentaire, $userid, NOW())");
+		}
+	}
+
+?>
 	
 	<div class="formulaire">
-	
-		 <!-- indiquer la page actuelle avec ou sans query du type ?id=123&... et l'id de la'rticle pour affiche les commentaire de cette article seulement, si vous utilisez ce système de commentaire pour un livre d'or par exemple, vous pouvez l'enlever et mettre seulement la page actuelle: afficherFormulaireCommentaire("page.php"); -->
-	<center>
-	<?php afficherFormulaireCommentaire("GuestBook.php",123);?>
-	</center>
-	
-	
+		
+			<form id="form-guestbook" action="" method="POST">
+			<?php echo "Vous êtes connecté en tant que " . $_SESSION['login']; ?>
+			<h2>Message</h2>
+			<textarea placeholder="Votre commentaire" name="commentaire" rows="10" cols="50" required></textarea>
+			<input type="submit" name="envoyer" value="Poster!">
+			</form>
+		
 	</div>
-	
-     <br><br><br>
-	<h2>Commentaires postés</h2>
-<br><br>
-	<div class="commentaire-poste">
-	<center>
-	<?php afficherCommentaires(123);?>
-	</center>	
+	<div class="commentaire">
+		<?php
+			if($result = mysqli_query($connect,"SELECT commentaires.*, utilisateurs.login FROM commentaires INNER JOIN utilisateurs ON commentaires.id_utilisateur = utilisateurs.id ORDER BY `date` ASC")){
+				while ($infos = mysqli_fetch_assoc($result)){
+					
+					?>
+					<div class="screen_com">
+						<p>
+							Commentaire posté par <?php echo $infos['login']; ?> le <?php echo $infos['date']; ?><br>
+							<br><br>
+							
+						<?php echo $infos['commentaire']; ?>
+
+						</p>
+					</div>
+					<?php 
+				}
+			}
+		?>
+
 	</div>
-    
-<?php require 'footer.php' ?>
-	</body>
-</html>
+<?php include('include/footer.inc.php');?>

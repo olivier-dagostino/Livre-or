@@ -1,6 +1,10 @@
 <?php
 
-session_start();
+include('include/header.inc.php');
+?>
+<?php
+
+
 $id = $_SESSION["id"];
 $bdd = mysqli_connect("localhost:8889", "root", "root", "livreor"); 
 
@@ -25,7 +29,7 @@ if (isset($_POST['env']))
 
 ?>
 
-<?php require_once 'header.php';?>
+
 
 
     <h2><center>Modifier votre Profil</center></h2><br><br><br><br>
@@ -51,4 +55,4 @@ if (isset($_POST['env']))
     <br><br><br><br>
 
 
-<?php require 'footer.php' ?>
+<?php include('include/footer.inc.php') ?>

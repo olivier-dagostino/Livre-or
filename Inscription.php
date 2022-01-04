@@ -1,5 +1,9 @@
+<?php 
+include('include/header.inc.php');
+include('include/bdd.inc.php');
+?>
 <?php
-$connect = mysqli_connect("localhost:8889", "root", "root", "livreor"); // je me connecte a la bdd
+
 
 
 if (isset($_POST['env'])) {
@@ -24,7 +28,7 @@ if (isset($_POST['env'])) {
 }
 ?>
 
-<?php require 'header.php' ?>
+
 
 <div>
   <center>
