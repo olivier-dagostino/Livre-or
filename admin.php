@@ -1,4 +1,4 @@
-<?php include('include/header.inc.php'); ?>
+<?php require('header.php'); ?>
 <?php
 
 
@@ -77,5 +77,5 @@ $res = mysqli_fetch_all($req, MYSQLI_ASSOC);  //on stock le résultat de la requ
     }
 </style>
 
-<?php include('include/footer.inc.php'); ?>
+<?php require('footer.php'); ?>
 <?php } ?>

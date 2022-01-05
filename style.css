@@ -15,6 +15,11 @@ body {
 }
 
 /* Style Formulaire de connexion */
+.formu{
+  display: flex;
+  justify-content: center;
+}
+
 #form-connexion {
   align-items: center;
   width: 70%;

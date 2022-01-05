@@ -1,5 +1,5 @@
 <?php
-include('include/header.inc.php');
+require('header.php');
 ?>
 
 <?php
@@ -54,5 +54,5 @@ if (isset($_POST['login']) && isset($_POST['password'])) { // SI c'est deux $Pos
 </main>
 <br><br><br>
 <footer>
-    <?php include('include/footer.inc.php'); ?>
+    <?php require('footer.php'); ?>
 </footer>

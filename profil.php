@@ -1,6 +1,6 @@
 <?php
 
-include('include/header.inc.php');
+require('header.php');
 ?>
 <?php
 
@@ -55,4 +55,4 @@ if (isset($_POST['env']))
     <br><br><br><br>
 
 
-<?php include('include/footer.inc.php') ?>
+<?php require('footer.php'); ?>

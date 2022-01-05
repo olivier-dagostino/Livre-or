@@ -1,6 +1,6 @@
 <?php
 include('include/bdd.inc.php');
-include('include/header.inc.php');
+require('header.php');
 ?>
 
 
@@ -54,4 +54,4 @@ include('include/header.inc.php');
 		</div>
 	</div>
 
-	<?php include('include/footer.inc.php');?>
+	<?php require('footer.php');?>

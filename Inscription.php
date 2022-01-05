@@ -1,5 +1,5 @@
 <?php
-include('include/header.inc.php');
+require('header.php');
 include('include/bdd.inc.php');
 
 
@@ -91,4 +91,4 @@ if (isset($_SESSION['login']) == false) {
   </form>
 </div>
 
-<?php include('include/footer.inc.php'); ?>
+<?php require('footer.php'); ?>
