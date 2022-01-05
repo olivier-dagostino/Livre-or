@@ -36,25 +36,30 @@ include('include/header.inc.php');
         </div>
 
     </div>
-    <div class="commentaire">
-		<?php
-			if($result = mysqli_query($connect,"SELECT commentaires.*, utilisateurs.login FROM commentaires INNER JOIN utilisateurs ON commentaires.id_utilisateur = utilisateurs.id ORDER BY `date` ASC")){
-				while ($infos = mysqli_fetch_assoc($result)){
-					
-					?>
-					<div class="screen_com">
-					<p>
-						Commentaire posté par <?php echo $infos['login']; ?> le <?php echo $infos['date']; ?>
-						
-						<?php echo $infos['commentaire']; ?>
-					</p>
-				</div>
-					<?php 
-				}
-			}
-		?>
+    <div id="alignement-com">
+        <div class="commentaire">
+            <?php
+                if($result = mysqli_query($connect,"SELECT commentaires.*, utilisateurs.login FROM commentaires INNER JOIN utilisateurs ON commentaires.id_utilisateur = utilisateurs.id ORDER BY `date` ASC")){
+                    while ($infos = mysqli_fetch_assoc($result)){
+                        
+                        ?>
+                        <div class="screen_com">
+                            <div class="screen-com1">
+                                <p>
+                                    Commentaire posté par <?php echo $infos['login']; ?> le <?php echo $infos['date']; ?>
+                                </p>
+                            </div>
+                            <div class="screen-com2">	
+                            <?php echo $infos['commentaire']; ?>
+                            </div>
+                        </div>
+                        <?php 
+                    }
+                }
+            ?>
 
-	</div>
+        </div>
+    </div>
 
 </main>
 

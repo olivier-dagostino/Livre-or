@@ -64,7 +64,7 @@ if (isset($_SESSION['login']) == false) {
 
 
 
-<div>
+<div class="form-inscription">
   <form id="form-inscription" action="" method="post">
     <?php
     // if (!empty($nom) && !empty($prenom) && !empty($password) && !empty($login)) {

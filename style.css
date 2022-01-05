@@ -19,6 +19,7 @@ body {
   align-items: center;
   width: 70%;
   padding: 30px;
+  margin: 100px;
   border: 2px solid #4fce99;
   box-shadow: 0 0 30px 0 #33bfaa8f, 1px 1px 20px 20px #33bfaa8f;
 }
@@ -28,6 +29,7 @@ body {
   align-items: center;
   width: 70%;
   padding: 30px;
+  margin: 100px;
   border: 2px solid #4fce99;
   box-shadow: 0 0 30px 0 #33bfaa8f, 1px 1px 20px 20px #33bfaa8f;
 }
@@ -37,11 +39,51 @@ body {
   align-items: center;
   width: 70%;
   padding: 30px;
+  margin: 100px;
   border: 2px solid #4fce99;
   box-shadow: 0 0 30px 0 #33bfaa8f, 1px 1px 20px 20px #33bfaa8f;
 }
+#alignement-com{
+  display: flex;
+  justify-content: center;
+}
 
+.commentaire {
+  border: 2px solid #4fce99;
+  width: 60%;
+  box-shadow: 0 0 30px 0 #33bfaa8f, 1px 1px 20px 20px #33bfaa8f;
+  display: flex;
+  flex-wrap: wrap;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+}
 
+.screen_com {
+  border: 2px solid #4fce99;
+  height: fit-content;
+  width: fit-content;
+  margin: 20px;
+}
+.screen-com1{
+  border: 2px solid #4fce99;
+  padding: 20px;
+}
+
+.screen-com2{
+  padding: 30px;
+}
+.formulaire{
+  display: flex;
+  justify-content: center;
+}
+
+.form-inscription{
+  display: flex;
+  justify-content: center;
+}
 /* Syle de tous les Formulaires */
 
 input[type=text], input[type=password] {
@@ -82,6 +124,7 @@ h1 {
   font-size:  60px;
   color: #4fce99;
   text-align: center;
+  margin: 20px;
 }
 
 h2 {
