@@ -1,9 +1,6 @@
-<?php 
+<?php
 include('include/header.inc.php');
 include('include/bdd.inc.php');
-?>
-<?php
-
 
 
 if (isset($_POST['env'])) {
@@ -11,14 +8,18 @@ if (isset($_POST['env'])) {
   $prenom = $_POST['prenom'];
   $password = $_POST['password'];
   $login = $_POST['login'];
-  $conf = $_POST['conf'];
+  $conf = $_POST['confpw'];
 
+  $select = mysqli_query($connect, "SELECT * FROM `utilisateurs` WHERE `login` = '$login'");
+  if (mysqli_num_rows($select)) {
+    exit("Ce nom d'utilisateur existe déjà");
+  }
 
   if (!empty($nom) && !empty($prenom) && !empty($password) && !empty($login)) {
     if ($password == $conf) {
       echo 'Compte créé';
-      $req = mysqli_query($connect, "INSERT INTO utilisateurs (login,prenom,nom,password)
-    VALUES('$login','$prenom','$nom','$password')");
+
+      $req = mysqli_query($connect, "INSERT INTO `utilisateurs` (`login`,`prenom`,`nom`,`password`,`role`) VALUES('$login','$prenom','$nom','$password','utilisateur')");
     } else {
       echo 'Confirmer votre MDP';
     }
@@ -26,21 +27,52 @@ if (isset($_POST['env'])) {
     echo 'Tous les champs doivent être remplis';
   }
 }
+
+
+
+
+
+if (isset($_SESSION['login']) == false) {
+  if (isset($_POST['inscription'])) {
+    $login = $_POST['login'];
+    $mdp = $_POST['password'];
+    $nom = $_POST['nom'];
+    $prenom = $_POST['prenom'];
+    $password = $_POST['password'];
+    $conf = $_POST['confpw'];
+
+    $checklogin = "SELECT login FROM utilisateurs WHERE login = '$login'";
+    $query = mysqli_query($connect, $checklogin);
+    $veriflogin = mysqli_fetch_all($query);
+
+    if (empty($veriflogin)) {
+      if ($_POST['password'] == $_POST['confpw']) {
+
+        $ajoutbdd = 'INSERT INTO utilisateurs (login, prenom, nom, password) VALUES ("' . $login . '", "' . $prenom . '","' . $nom . '", "' . $password . '")';
+        $ajout = mysqli_query($connect, $ajoutbdd);
+        // echo $ajoutbdd;
+      } else {
+        echo 'Vos mos de passes de correspondent pas';
+      }
+    } else {
+      echo 'Ce login n\'est pas disponible';
+    }
+  }
+  mysqli_close($connect);
+}
 ?>
 
 
 
 <div>
-  <center>
-  <form id="form-inscription" action="connexion.php" method="post">
+  <form id="form-inscription" action="" method="post">
     <?php
-    if (!empty($nom) && !empty($prenom) && !empty($password) && !empty($login)) {
-      if ($password == $conf) {
-        echo 'Compte créé';
-        header('location: connexion.php');
-        
-      }
-    }
+    // if (!empty($nom) && !empty($prenom) && !empty($password) && !empty($login)) {
+    //   if ($password == $conf) {
+    //     echo 'Compte créé';
+    //     // header('location: connexion.php');
+    //   }
+    // }
     ?>
     <h1>
       <center>Formulaire d'Inscription</center>
@@ -55,50 +87,8 @@ if (isset($_POST['env'])) {
     <input style="font-family: 'Indie Flower', cursive;" type="password" name="password" id="password" placeholder="Password"><br><br>
     <label for="confpw">Confirmation Mot de Passe</label><br>
     <input style="font-family: 'Indie Flower', cursive;" type="password" name="confpw" id="confpw" placeholder="Confirmer votre Password"><br><br>
-    <input style="font-family: 'Indie Flower', cursive; font: size 20px;" type="submit" value="S'inscrire" name="inscription" class="submit"><br><br><br><br>
+    <input style="font-family: 'Indie Flower', cursive; font: size 20px;" type="submit" value="S'inscrire" name="env" class="submit"><br><br><br><br>
   </form>
-  </center>
 </div>
-<br><br><br>
 
-<?php
-$select = mysqli_query($conn, "SELECT * FROM users WHERE username = '".$_POST['username']."'");
-if(mysqli_num_rows($select)) {
-    exit("Ce nom d'utilisateur existe déjà");
-}
-?>
-
-<?php
-$bdd = mysqli_connect("localhost:3306", "utilisateurs1", "12345", "olivier-d-agostino_livreor");
-
-if (isset($_SESSION['login']) == false) {
-  if (isset($_POST['inscription'])) {
-    $login = $_POST['login'];
-    $mdp = $_POST['password'];
-    $nom = $_POST['nom'];
-    $prenom = $_POST['prenom'];
-    $password = $_POST['password'];
-    $conf = $_POST['confpw'];
-
-    $checklogin = "SELECT login FROM utilisateurs WHERE login = '$login'";
-    $query = mysqli_query($bdd, $checklogin);
-    $veriflogin = mysqli_fetch_all($query);
-
-    if (empty($veriflogin)) {
-      if ($_POST['password'] == $_POST['confpw']) {
-
-        $ajoutbdd = 'INSERT INTO utilisateurs (login, prenom, nom, password) VALUES ("' . $login . '", "' . $prenom . '","' . $nom . '", "' . $password . '")';
-        $ajout = mysqli_query($bdd, $ajoutbdd);
-        // echo $ajoutbdd;
-      } else {
-        echo 'Vos mos de passes de correspondent pas';
-      }
-    } else {
-      echo 'Ce login n\'est pas disponible';
-    }
-  }
-  mysqli_close($bdd);
-}
-
-?>
-<?php require 'footer.php' ?>
+<?php include('include/footer.inc.php'); ?>

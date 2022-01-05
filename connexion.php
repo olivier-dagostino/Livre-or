@@ -27,7 +27,7 @@ if (isset($_POST['login']) && isset($_POST['password'])) { // SI c'est deux $Pos
             header("refresh:2;url=admin.php"); // alors je renvois vers admin.php
 
         } else {
-            echo $res[0][2] . ' Veuillez patienter, vous allez être redirigé vers votre espace'; // Sinon bienvenue dans votre espace
+            echo $res[0][2] . ' Veuillez patienter, vous allez être redirigé'; // Sinon bienvenue dans votre espace
          
             $_SESSION["id"] = $res[0][0];
             $_SESSION["role"] = $res[0][5];
@@ -40,7 +40,7 @@ if (isset($_POST['login']) && isset($_POST['password'])) { // SI c'est deux $Pos
 <main>
 
     <div class="formu">
-        <center>
+        
             <form id="form-connexion" method="post" action="">
                 <h1>
                     <center>Connexion</center>
@@ -49,10 +49,10 @@ if (isset($_POST['login']) && isset($_POST['password'])) { // SI c'est deux $Pos
                 <input style="font-family: 'Indie Flower', cursive;" name="password" type="password" placeholder="Mot de Passe" requried /><br><br>
                 <input style="font-family: 'Indie Flower', cursive;" type=submit value="Envoyer" name="env">
             </form>
-        </center>
+        
         <div>
 </main>
 <br><br><br>
 <footer>
-    <?php require 'footer.php' ?>
+    <?php include('include/footer.inc.php'); ?>
 </footer>

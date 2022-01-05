@@ -29,7 +29,7 @@
                 if (!empty($_SESSION["login"])) {
                     echo "<div class='nav_list_item'><li><a href='index.php'>Home</a></li></div>";
                     echo "<div class='nav_list_item'><li><a href='profil.php'>Profil</a></li></div>";
-                    echo "<div class='nav_list_item'><li><a href='GuestBook.php'>Livre d'Or</a></li></div>";
+                    echo "<div class='nav_list_item'><li><a href='guestbook.php'>Livre d'Or</a></li></div>";
                     echo "<div class='nav_list_item'><li><a href='deconnexion.php'>Déconnexion</a></li></div>";
                 } else {
                     echo "<div class='nav_list_item'><li><a href='index.php'>Home</a></li></div>";
