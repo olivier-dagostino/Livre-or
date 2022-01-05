@@ -43,13 +43,12 @@ include('include/header.inc.php');
 					
 					?>
 					<div class="screen_com">
-						<h2>Pseudo</h2>
-						<?php echo $infos['login']; ?>
-						<h2>Date</h2>
-						<?php echo $infos['date']; ?>
-						<h2>Commentaire</h2>
+					<p>
+						Commentaire posté par <?php echo $infos['login']; ?> le <?php echo $infos['date']; ?>
+						
 						<?php echo $infos['commentaire']; ?>
-					</div>
+					</p>
+				</div>
 					<?php 
 				}
 			}
