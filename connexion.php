@@ -1,10 +1,9 @@
 <?php
-require('header.php');
+require('header.php'); 
+include('include/bdd.inc.php');
 ?>
 
 <?php
-
-$connect = mysqli_connect("localhost:8889", "root", "root", "livreor"); // je me connecte a la bdd
 
 
 if (isset($_POST['login']) && isset($_POST['password'])) { // SI c'est deux $Post sont défini

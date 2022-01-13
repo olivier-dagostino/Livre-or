@@ -17,10 +17,9 @@ if (isset($_POST['env'])) {
 
   if (!empty($nom) && !empty($prenom) && !empty($password) && !empty($login)) {
     if ($password == $conf) {
+      mysqli_query($connect, "INSERT INTO utilisateurs (login,prenom,nom,password,role) VALUES('".$login."','".$prenom."','".$nom."','".$hash."','utilisateur')");
       header("Refresh:3; url=connexion.php");
       echo 'Votre Compte à bien été créé, vous allez être redirigé vers la page de Connexion';
-
-      $req = mysqli_query($connect, "INSERT INTO `utilisateurs` (`login`,`prenom`,`nom`,`password`,`role`) VALUES('$login','$prenom','$nom','$hash','utilisateur')");
     } else {
       echo 'Confirmer votre MDP';
     }
@@ -28,10 +27,6 @@ if (isset($_POST['env'])) {
     echo 'Tous les champs doivent être remplis';
   }
 }
-
-
-
-
 
 if (isset($_SESSION['login']) == false) {
   if (isset($_POST['inscription'])) {
