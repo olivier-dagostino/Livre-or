@@ -17,7 +17,8 @@ if (isset($_POST['env'])) {
 
   if (!empty($nom) && !empty($prenom) && !empty($password) && !empty($login)) {
     if ($password == $conf) {
-      echo 'Compte créé';
+      header("Refresh:3; url=connexion.php");
+      echo 'Votre Compte à bien été créé, vous allez être redirigé vers la page de Connexion';
 
       $req = mysqli_query($connect, "INSERT INTO `utilisateurs` (`login`,`prenom`,`nom`,`password`,`role`) VALUES('$login','$prenom','$nom','$password','utilisateur')");
     } else {
