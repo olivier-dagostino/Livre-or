@@ -10,29 +10,29 @@ $connect = mysqli_connect("localhost:8889", "root", "root", "livreor"); // je me
 if (isset($_POST['login']) && isset($_POST['password'])) { // SI c'est deux $Post sont défini
     $login = $_POST['login'];
     $password = $_POST['password'];
-    $sql = mysqli_query($connect, "SELECT * FROM utilisateurs WHERE login='$login' AND password='$password'"); // Je compare toutes les données de la table utilisateurs avec $login et $password
-    $res = mysqli_fetch_all($sql);  // Alors la $login et $password vont stocker $post
+    $sql = mysqli_query($connect, "SELECT * FROM utilisateurs WHERE login='$login'"); // Je compare toutes les données de la table utilisateurs avec $login et $password
+    $res = mysqli_fetch_array($sql);  // Alors la $login et $password vont stocker $post
 
     if (empty($res)) {
         echo 'Votre Mot de Passe ou Votre Nom Utilisateur sont inconnus'; // verification du MDP et du Login
     } else {
-        if ($res[0][5] == "admin") { //si la $res est strictement = a $password
-            
-            // alors start session
-            $_SESSION["id"] = $res[0][0];
-            $_SESSION["role"] = $res[0][5];
-            $_SESSION["login"] = $res [0][1];
-            
+        if (password_verify($password, $res['password'])) 
+        {
+            if ($res['role'] == "admin") { //si la $res est strictement = a $password
+                // alors start session
+                $_SESSION['id'] = $res['id'];
+                $_SESSION['role'] = $res['role'];
+                $_SESSION['login'] = $res['login'];
 
-            header("refresh:2;url=admin.php"); // alors je renvois vers admin.php
+                header("refresh:1;url=admin.php"); // alors je renvois vers admin.php
 
-        } else {
-            echo $res[0][2] . ' Veuillez patienter, vous allez être redirigé'; // Sinon bienvenue dans votre espace
-         
-            $_SESSION["id"] = $res[0][0];
-            $_SESSION["role"] = $res[0][5];
-            $_SESSION["login"] = $res [0][1];
-            header("refresh:1;url=GuestBook.php");
+            } else {
+                echo $res['prenom'] . ' Veuillez patienter, vous allez être redirigé'; // Sinon bienvenue dans votre espace
+                $_SESSION["id"] = $res['id'];
+                $_SESSION["role"] = $res['role'];
+                $_SESSION["login"] = $res ['login'];
+                header("refresh:1;url=GuestBook.php");
+            }
         }
     }
 }

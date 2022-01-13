@@ -9,7 +9,7 @@ if (isset($_POST['env'])) {
   $password = $_POST['password'];
   $login = $_POST['login'];
   $conf = $_POST['confpw'];
-
+  $hash = password_hash($password, PASSWORD_DEFAULT);
   $select = mysqli_query($connect, "SELECT * FROM `utilisateurs` WHERE `login` = '$login'");
   if (mysqli_num_rows($select)) {
     exit("Ce nom d'utilisateur existe déjà");
@@ -20,7 +20,7 @@ if (isset($_POST['env'])) {
       header("Refresh:3; url=connexion.php");
       echo 'Votre Compte à bien été créé, vous allez être redirigé vers la page de Connexion';
 
-      $req = mysqli_query($connect, "INSERT INTO `utilisateurs` (`login`,`prenom`,`nom`,`password`,`role`) VALUES('$login','$prenom','$nom','$password','utilisateur')");
+      $req = mysqli_query($connect, "INSERT INTO `utilisateurs` (`login`,`prenom`,`nom`,`password`,`role`) VALUES('$login','$prenom','$nom','$hash','utilisateur')");
     } else {
       echo 'Confirmer votre MDP';
     }
