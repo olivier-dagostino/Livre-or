@@ -6,17 +6,14 @@ require('header.php');
 
 	<h1>Livre d'Or</h1>
 
-	<?php
 
+<?php
+	if (! isset($_SESSION['login']))  {
 	
-    if ( $_SERVER['REQUEST_METHOD']=='GET' && realpath(__FILE__) == realpath( $_SERVER['SCRIPT_FILENAME'] ) ) {
-        
-        header( 'HTTP/1.0 403 Forbidden', TRUE, 403 );
-        die( header( 'location: inscription.php' ) );
-
-    }
-
-
+		header("location:connexion.php");
+		exit();
+	}
+	
 	if (isset($_POST['envoyer'])) { //si le bouton envoyer (name="envoyer") est cliqué, on traite le fomulaire
 		if (empty($_POST['commentaire'])) {
 			$msg_erreur = "Le Champ Commentaire est vide";
@@ -25,12 +22,9 @@ require('header.php');
 			$userid = $_SESSION['id'];
 			$req = "INSERT INTO `commentaires` (`commentaire`,`id_utilisateur`,`date`) VALUES ('$commentaire', '$userid', NOW())";
 			$result = mysqli_query($connect, $req);
-			
-			// header('location:guestbook.php');
 		}
 	}
-
-	?>
+?>
 
 	<div class="formulaire">
 
