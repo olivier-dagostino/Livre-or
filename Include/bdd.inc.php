@@ -1,5 +1,5 @@
 <?php
 
-$connect = mysqli_connect("localhost", "root", "root", "livreor");
+$bdd = mysqli_connect("localhost:8889", "root", "root", "livreor");
 
 ?>
