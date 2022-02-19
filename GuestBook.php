@@ -39,7 +39,7 @@ require('header.php');
 	<div id="alignement-com">
 		<div class="commentaire">
 			<?php
-			if ($result = mysqli_query($connect, "SELECT commentaires.*, utilisateurs.login FROM commentaires INNER JOIN utilisateurs ON commentaires.id_utilisateur = utilisateurs.id ORDER BY `date` DESC")) {
+			if ($result = mysqli_query($connect, "SELECT commentaires.*,`utilisateurs.login` FROM commentaires INNER JOIN utilisateurs ON `commentaires.id_utilisateur` = `utilisateurs.id` ORDER BY `date` DESC")) {
 				while ($infos = mysqli_fetch_assoc($result)) {
 					
 			?>
